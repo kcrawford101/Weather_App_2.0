@@ -5,3 +5,60 @@
     padding: 0%;
     box-sizing: border-box;
 }
+
+body {
+    background: url('https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    height: 100vh;
+    font-family: 'Heebo', sans-serif;
+}
+
+.container {
+    padding: 20px 70px;
+    color: #ffff
+}
+
+.current-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+.date-container .time {
+    font-size: 70px;
+    font-weight: 100;
+}
+
+.date-container {
+    font-size: 30px;
+    margin-left: 20px;
+} 
+
+.date-container .date {
+    font-size: 30px;
+}
+
+.place-container {
+    text-align: end;
+}
+
+.place-container .time-zone {
+    font-size:30px;
+    font-weight: 100;
+}
+.place-container .country {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.current-info .others {
+    display: flex;
+    flex-direction: column;
+}
+
+.current-info .others .weather-item {
+    display: flex;
+    justify-content: space-between;
+}
