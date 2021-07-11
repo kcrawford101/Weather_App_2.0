@@ -38,7 +38,7 @@ function getWeatherData () {
         function displayWeather (data) {
             
             // const { name } = data;
-            const { main } = data;
+            const { main } = data.current;
             const { temp, humidity } = data.current;
             const { wind_speed } = data.current;
             const { uvi } = data.current;
