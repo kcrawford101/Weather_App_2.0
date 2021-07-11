@@ -33,7 +33,6 @@ function getWeatherData () {
         console.log(data)
         displayWeather(data);
         });
-
                 
         function displayWeather (data) {
             

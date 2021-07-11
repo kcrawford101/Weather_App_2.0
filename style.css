@@ -16,12 +16,13 @@ body {
 }
 
 .container {
-    padding: 20px 70px;
+    padding: 20px 0;
     color: #ffff
 }
 
 .current-info {
     display: flex;
+    padding-left: 5px;
     justify-content: space-between;
     flex-wrap: nowrap;
     font-weight: 100;
@@ -42,6 +43,7 @@ body {
 
 .place-container {
     text-align: end;
+    padding-right: 5px;
 }
 
 .place-container .time-zone {
@@ -134,7 +136,7 @@ body {
 @media only screen and  (max-width:730px){
     
     .container{
-        padding: 20px;
+        padding: 0px;
     }
     
     .future-forecast{
@@ -162,6 +164,7 @@ body {
     .place-container{
         text-align: end;
         margin-top: 15px;
+        padding-right: 5px;
     }
 
     .place-container .time-zone{
