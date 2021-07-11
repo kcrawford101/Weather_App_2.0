@@ -31,9 +31,36 @@ function getWeatherData () {
         fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=metric&appid=${apiKey}`)
         .then(res => res.json()).then(data => {
         console.log(data)
-        // showWeatherData(data);
-        })
+        displayWeather(data);
+        });
 
-    })
-}
+                
+        function displayWeather (data) {
+            
+            // const { name } = data;
+            const { main } = data;
+            const { temp, humidity } = data.current;
+            const { wind_speed } = data.current;
+            const { uvi } = data.current;
+            
+            
+            // document.querySelector(".city").innerText = "Weather in " + name;
+            // document.querySelector(".icon").src = "https://openweathermap.org/img/wn/" + icon + ".png";
+            document.querySelector(".condition").innerText = main;
+            document.querySelector(".temp").innerText = temp + "°C";
+            document.querySelector(".humid").innerText = humidity + "%";
+            document.querySelector(".wind").innerText = wind_speed + "km/h";
+            document.querySelector(".uvi").innerText = uvi + '%';
+        
+        }
+
+    });
+    
+       
+};
+
+
+
+
+
 
