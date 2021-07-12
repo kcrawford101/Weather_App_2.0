@@ -131,7 +131,7 @@ body {
     padding: 25px !important;
     position: fixed; 
     bottom: 75vh;
-    left: 90vh;     
+    left: 80vh;     
     display: flex;
     color:#ffff;
     width: fit-content;    
@@ -151,14 +151,6 @@ body {
     font-size: 20px;
     color:#ffff;
 }
-
-/* @media only screen and (max-width: 730px) {
-    .future-forecast {
-        justify-content: start;
-        align-items: none;
-        overflow-y: scroll;
-    }
-} */
 
 @media only screen and  (max-width:730px){
     

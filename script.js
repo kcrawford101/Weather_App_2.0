@@ -37,11 +37,10 @@ function getWeatherData () {
         function displayWeather (data) {
                        
             // const { name } = data;
-            const { weather } = JSON.parse(current);
+            const  weather  = data.current.weather[0].main;
             const { temp, humidity } = data.current;
             const { wind_speed } = data.current;
-            const { uvi } = data.current;
-            
+            const { uvi } = data.current;                    
             
             // document.querySelector(".city").innerText = "Weather in " + name;
             // document.querySelector(".icon").src = "https://openweathermap.org/img/wn/" + icon + ".png";
@@ -50,6 +49,32 @@ function getWeatherData () {
             document.querySelector(".humid").innerText = humidity + "%";
             document.querySelector(".wind").innerText = wind_speed + "km/h";
             document.querySelector(".uvi").innerText = uvi + '%';
+
+            // 5 Day Weather Forecast Display
+            let otherDayForecast = ''
+            data.daily.forEach((day, idx) => {
+                if(idx == 0){
+                    currentTempEl.innerHTML = `
+                    <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="weather icon" class="w-icon">
+                <div class="other">
+                    <div class="day">${window.moment(day.dt*1000).format('ddd')}</div>
+                    <div class="temp">Night - ${day.temp.night}°C</div>
+                    <div class="temp">Day - ${day.temp.day}C</div>
+                </div> `
+
+                }else{
+                    otherDayForecast += `
+                    <div class="weather-forecast-item">
+                    <div class="day">${window.moment(day.dt*1000).format('ddd')}</div>
+                    <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="weather icon" class="w-icon">                    
+                    <div class="temp">Night: ${day.temp.night}°C</div>
+                    <div class="temp">Day: ${day.temp.day}°C</div>                    
+                    </div>`
+                }
+            })
+            weatherForecastEl.innerHTML = otherDayForecast
+
+
         
             
         }
