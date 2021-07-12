@@ -35,9 +35,9 @@ function getWeatherData () {
         });
         // Display Function
         function displayWeather (data) {
-            
+                       
             // const { name } = data;
-            // const { weather } = data.current[1];
+            const { weather } = JSON.parse(current);
             const { temp, humidity } = data.current;
             const { wind_speed } = data.current;
             const { uvi } = data.current;
@@ -45,7 +45,7 @@ function getWeatherData () {
             
             // document.querySelector(".city").innerText = "Weather in " + name;
             // document.querySelector(".icon").src = "https://openweathermap.org/img/wn/" + icon + ".png";
-            // document.querySelector(".condition").innerText = weather;
+            document.querySelector(".condition").innerText = weather;
             document.querySelector(".temp").innerText = temp + "°C";
             document.querySelector(".humid").innerText = humidity + "%";
             document.querySelector(".wind").innerText = wind_speed + "km/h";
