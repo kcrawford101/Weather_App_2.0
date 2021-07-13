@@ -1,8 +1,8 @@
 // API Key
 const apiKey= 'b97e0971f053e47fa5a7a92a78b0c889';
 
-const timeEl = document.getElementById('time');
-const dateEl = document.getElementById('date');
+// const timeEl = document.getElementById('time');
+// const dateEl = document.getElementById('date');
 const currentWeatherEl = document.getElementById('currentWeather');
 const timeZone = document.getElementById('time-zone');
 const countryEl = document.getElementById('country');
@@ -35,6 +35,9 @@ function getWeatherData () {
         });
         // Display Function
         function displayWeather (data) {
+
+            timeZone.innerHTML = data.timezone;
+            countryEl.innerHTML =data.lat + 'N ' + data.lon + 'E ';
                        
             // const { name } = data;
             const  weather  = data.current.weather[0].main;
@@ -50,7 +53,7 @@ function getWeatherData () {
             document.querySelector(".wind").innerText = wind_speed + "km/h";
             document.querySelector(".uvi").innerText = uvi + '%';
 
-            // 5 Day Weather Forecast Display
+            // 5 Day Weather Forecast Display Loop
             let otherDayForecast = ''
             data.daily.forEach((day, idx) => {
                 if(idx == 0){
