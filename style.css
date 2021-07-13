@@ -132,7 +132,7 @@ body {
     font-weight: 100px;
 }
 
-.search {
+.search-bar {
     background: rgba(24,24,27,0.6);
     padding: 25px !important;
     position: fixed; 
@@ -150,7 +150,7 @@ body {
     border: 1px solid #ffff;
 }
 
-.search-bar {
+.search {
     background: #3c3c446c;
     width: 75%;
     height: 50px;
