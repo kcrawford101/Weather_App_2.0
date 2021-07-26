@@ -71,6 +71,11 @@ body {
     justify-content: space-between;
 }
 
+.current-info .others .uvi{
+    color: black;
+    font-weight: 300;
+}
+
 .future-forecast {
     background: rgba(24,24,27,0.6);
     padding: 25px !important;

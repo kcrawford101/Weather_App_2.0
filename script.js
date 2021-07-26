@@ -1,8 +1,6 @@
 // API Key
 const apiKey = 'b97e0971f053e47fa5a7a92a78b0c889';
 
-// const timeEl = document.getElementById('time');
-// const dateEl = document.getElementById('date');
 const currentWeatherEl = document.getElementById('currentWeather');
 const timeZone = document.getElementById('time-zone');
 const countryEl = document.getElementById('country');
@@ -16,22 +14,12 @@ headerDate();
 function headerDate() {
     var currentTime = moment().format('LT');
     $(".time").text(currentTime);
-
     var currentDate = moment().format('dddd MMM Do');
     $(".date").text(currentDate);
-
     console.log(headerDate);
 };
 
 // API Fetch Request
-// getWeatherData();
-
-
-//get the name from the user
-//pass the city name to fetchWeather
-//after that is done pass the lat and lon to getWeatherData
-//populate the html
-
 function fetchCity(search) {
     fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=5&appid=${apiKey}`)
         .then((response) => response.json())
@@ -39,14 +27,9 @@ function fetchCity(search) {
 };
 
 
-
 // // Weather Fetch
-function fetchWeather(data) {
-    // navigator.geolocation.getCurrentPosition((success) => {
+function fetchWeather(data) {    
         console.log(data)
-
-        // let { latitude, longitude } = success.coords;
-
 // //from the data get the latitude and longitude to make the next api call
 let latitude=data[0].lat;
 let longitude=data[0].lon;
@@ -59,32 +42,35 @@ let longitude=data[0].lon;
     // });
 };
 
-
-// City Search
-
-
-
-
 // Display Current Weather Data
 function displayWeather(data) {
-console.log(data)
-    // timeZone.innerHTML = data.timezone;
-    // countryEl.innerHTML = data.lat + 'N ' + data.lon + 'E ';
-    const name =document.querySelector("#search").value
-    // const { name } = data;
-    const weather = data.current.weather[0].main;
-    // Get Icon
+console.log(data)    
+    const name =document.querySelector("#search").value    
+    const weather = data.current.weather[0].main;    
     const { temp, humidity } = data.current;
     const { wind_speed } = data.current;
     const { uvi } = data.current;
 
-    document.querySelector(".city").innerText = "Weather in " + name;
-    // document.querySelector(".icon").src = "https://openweathermap.org/img/wn/" + icon + ".png";
+    document.querySelector(".city").innerText = name;    
     document.querySelector(".condition").innerText = weather;
     document.querySelector(".temp").innerText = temp + "°C";
     document.querySelector(".humid").innerText = humidity + "%";
     document.querySelector(".wind").innerText = wind_speed + "km/h";
-    document.querySelector(".uvi").innerText = uvi + '%';
+    // document.querySelector(".uvi").innerText = uvi + '%';
+
+    if (uvi <= 2.99) {
+        document.querySelector(".uvi").setAttribute('style', 'background-color: #ccff99; border: 2px solid green; border-radius: 3px; padding: 0px 3px 0px 3px;');
+        document.querySelector(".uvi").textContent = `Low: ${uvi}`;
+    } else if (uvi >= 3.00 && uvi <= 5.00) {
+        document.querySelector(".uvi").setAttribute('style', 'background-color: #ffff99; border: 2px solid #cccc00; border-radius: 3px; padding: 0px 3px 0px 3px;');
+        document.querySelector(".uvi").textContent = `Med-Low: ${uvi}`;
+    } else if (uvi >= 6.00 && uvi <= 7.00) {
+        document.querySelector(".uvi").setAttribute('style', 'background-color: #ffd699; border: 2px solid orange; border-radius: 3px; padding: 0px 3px 0px 3px;;');
+        document.querySelector(".uvi").textContent = `Med-High: ${uvi}`;
+    } else {
+        document.querySelector(".uvi").setAttribute('style', 'background-color: #ffad99; border: 2px solid red; border-radius: 3px; padding: 0px 3px 0px 3px;');
+        document.querySelector(".uvi").textContent = `High: ${uvi}`;
+    }
 
     // 5 Day Weather Forecast Display Loop
     let otherDayForecast = ''
@@ -112,30 +98,14 @@ console.log(data)
 
 };
 
-
-
-// let weatherSearch = {
-//     fetchWeather: function (city) {
-//         fetch(queryURL)
-//             .then((response) => response.json())
-//             .then((data) => this.displayWeather(data))
-//     },
-// // 
-
-
-
-
-
 //add button function next
 document.querySelector(".searchbtn").addEventListener("click", function () {
 const cityname =document.querySelector("#search").value
 fetchCity(cityname)
 });
-// document.querySelector(".search").addEventListener("keyup", function (event) {
-//     if (event.key == "Enter") {
-//         fetchCity.search();
-//     }
-// });
+
+
+
 
 
 
