@@ -51,7 +51,7 @@ console.log(data)
     const { wind_speed } = data.current;
     const { uvi } = data.current;
 
-    document.querySelector(".city").innerText = name;    
+    document.querySelector(".city").innerText = "Weather in " + name;    
     document.querySelector(".condition").innerText = weather;
     document.querySelector(".temp").innerText = temp + "°C";
     document.querySelector(".humid").innerText = humidity + "%";
@@ -76,12 +76,12 @@ console.log(data)
     let otherDayForecast = ''
     data.daily.forEach((day, idx) => {
         if (idx == 0) {
-            currentTempEl.innerHTML = `
-            <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="weather icon" class="w-icon">
-        <div class="other">
-            <div class="day">${window.moment(day.dt * 1000).format('ddd')}</div>
-            <div class="temp">Night - ${day.temp.night}°C</div>
-            <div class="temp">Day - ${day.temp.day}C</div>
+            currentTempEl.innerHTML = `            
+        <div class="other"> 
+            <div class="day">${window.moment(day.dt * 1000).format('dddd')}</div>
+            <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="weather icon" class="w-icon">           
+            <div class="temp">Night: ${day.temp.night}°C</div>
+            <div class="temp">Day: ${day.temp.day}°C</div>
         </div> `
 
         } else {
