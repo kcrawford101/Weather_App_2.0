@@ -7,7 +7,6 @@ const countryEl = document.getElementById('country');
 const weatherForecastEl = document.getElementById('weather-forecast');
 const currentTempEl = document.getElementById('current-temp');
 const search = document.getElementById('search')
-// const weatherList = document.getElementById('weather-list')
 
 // Current Date & Time
 headerDate();
@@ -55,8 +54,7 @@ console.log(data)
     document.querySelector(".condition").innerText = weather;
     document.querySelector(".temp").innerText = temp + "°C";
     document.querySelector(".humid").innerText = humidity + "%";
-    document.querySelector(".wind").innerText = wind_speed + "km/h";
-    // document.querySelector(".uvi").innerText = uvi + '%';
+    document.querySelector(".wind").innerText = wind_speed + "km/h";    
 
     if (uvi <= 2.99) {
         document.querySelector(".uvi").setAttribute('style', 'background-color: #ccff99; border: 2px solid green; border-radius: 3px; padding: 0px 3px 0px 3px;');

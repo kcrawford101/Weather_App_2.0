@@ -43,11 +43,10 @@ body {
 }
 
 .place-container {
-    text-align: end;
-    padding-right: 5px !important;
+    text-align: end;    
 }
 
-.place-container .city{
+.place-container .city {
     font-size:30px;
     font-weight: 300;
 }
