@@ -101,17 +101,3 @@ document.querySelector(".searchbtn").addEventListener("click", function () {
 const cityname =document.querySelector("#search").value
 fetchCity(cityname)
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
