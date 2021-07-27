@@ -14,7 +14,7 @@
 
   
   ## Installation 
-  Click the link to view the deployed version.
+  [**Click here to view deployed application**](https://kcrawford101.github.io/Weather_App_2.0/)
 
   ## Usage 
   Type in a city into the search bar and click search to find the cities weather details.
